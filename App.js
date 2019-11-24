@@ -7,6 +7,7 @@ import Signup from "./Components/Authentication/Signup";
 import CoffeeList from "./Components/CoffeeList";
 import CoffeeDetail from "./Components/CoffeeDetail";
 import CoffeeCart from "./Components/CoffeeCart";
+import AppContainer from "./Navigation/node";
 
 export default class App extends Component {
   state = {
@@ -27,8 +28,7 @@ export default class App extends Component {
     }
     return (
       <Container>
-        <Header />
-        <Login />
+        <AppContainer />
       </Container>
     );
   }

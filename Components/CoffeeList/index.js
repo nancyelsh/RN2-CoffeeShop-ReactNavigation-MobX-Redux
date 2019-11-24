@@ -8,6 +8,7 @@ import coffeeshops from "./list";
 
 // Component
 import CoffeeItem from "./CoffeeItem";
+import CartButton from "../Buttons/CartButton";
 
 const CoffeeList = () => {
   const coffeeshopList = coffeeshops.map(coffeeshop => (
@@ -18,6 +19,11 @@ const CoffeeList = () => {
       <List>{coffeeshopList}</List>
     </Content>
   );
+};
+
+CoffeeList.navigationOptions = {
+  title: "Coffee List",
+  headerRight: <CartButton />
 };
 
 export default CoffeeList;

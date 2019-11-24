@@ -7,6 +7,7 @@ import { Text } from "native-base";
 import styles from "./styles";
 
 class Login extends Component {
+  handlePress = () => this.props.navigation.navigate("CoffeeList");
   render() {
     return (
       <View style={styles.authContainer}>
@@ -23,12 +24,20 @@ class Login extends Component {
           secureTextEntry={true}
         />
         <TouchableOpacity style={styles.authButton}>
-          <Text style={styles.authButtonText}>Log in</Text>
+          <Text onPress={this.handlePress} style={styles.authButtonText}>
+            Log in
+          </Text>
         </TouchableOpacity>
-        <Text style={styles.authOther}>Click here to register!</Text>
+        <Text style={styles.authOther} onPress={this.handlePress}>
+          Click here to register!
+        </Text>
       </View>
     );
   }
 }
+
+Login.navigationOptions = {
+  title: "Login"
+};
 
 export default Login;

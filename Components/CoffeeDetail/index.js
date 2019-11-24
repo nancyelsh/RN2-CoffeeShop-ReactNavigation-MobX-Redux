@@ -21,6 +21,7 @@ import styles from "./styles";
 
 //List
 import coffeeshops from "../CoffeeList/list";
+import CartButton from "../Buttons/CartButton";
 
 class CoffeeDetail extends Component {
   state = {
@@ -40,7 +41,10 @@ class CoffeeDetail extends Component {
     });
 
   render() {
-    const coffeeshop = coffeeshops[0];
+    const coffeeshopID = this.props.navigation.getParam("coffeeshopID");
+    const coffeeshop = coffeeshops.find(
+      coffeeshop => coffeeshopID === coffeeshop.id
+    );
     return (
       <Container>
         <Content>
@@ -106,5 +110,10 @@ class CoffeeDetail extends Component {
     );
   }
 }
+
+CoffeeDetail.navigationOptions = ({ navigation }) => ({
+  title: navigation.getParam("coffeeshopName"),
+  headerRight: <CartButton />
+});
 
 export default CoffeeDetail;
